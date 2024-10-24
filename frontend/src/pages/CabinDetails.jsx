@@ -6,8 +6,9 @@ import DateSelector from '../components/DateSelector';
 import Form from '../components/Form';
 
 
-const CabinDetails = ({cabins}) => {
+const CabinDetails = ({cabins,url}) => {
     const {id} = useParams();
+    
     const location = useLocation();
 
   
@@ -19,15 +20,15 @@ const CabinDetails = ({cabins}) => {
       <NNavbar />
       <div className='max-w-7xl mx-auto mt-10 p-10'>
         <div className='pr-10 pl-10'>
-          <Selected cabins={cabins} id={id}/>
+          <Selected cabins={cabins} id={id} url={url}/>
         </div>
         <div className='pr-10 pl-10'>
           <div className='flex items-center justify-center text-5xl font-bold' style={{ color: '#aa8153' }}>
-            Reserve {cabins[id].name} today.Pay on arrival.
+            Reserve {cabins[id-1].name} today.Pay on arrival.
           </div>
           <div className=' flex items-center justify-center '>
-            <DateSelector cabins={cabins} id={id} />
-            <Form cabins={cabins} id={id}/>
+            <DateSelector cabins={cabins} id={id} url={url}/>
+            <Form cabins={cabins} id={id} />
 
           </div>
         </div>

@@ -7,3 +7,11 @@
     color: black;
     background-color: white;
   }
+
+  .scrollbar-hidden {
+    scrollbar-width: none; /* For Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}

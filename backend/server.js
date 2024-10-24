@@ -2,22 +2,35 @@ import express from 'express'
 import cors from 'cors'
 import mongoose, { connect } from 'mongoose'
 
-import bookingRouter from './routes/bookingRoute'
-import { connectDB } from './config/db'
+import bookingRouter from './routes/bookingRoute.js'
+import { connectDB } from './config/db.js'
+import dotenv from 'dotenv'
+import cabinRouter from './routes/cabinRoute.js'
+
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
 
 //middleware
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173','http://localhost:5174'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    
+}))
+
+
 
 //connect to db
 connectDB();
 
 //import routes
-// app.use('/api/cabins', require('./routes/cabinRoute'))
+
 app.use('/api/booking', bookingRouter)
+app.use('/api/cabins', cabinRouter)
+app.use("/images",express.static('uploads'));
 
 app.get('/', (req, res) => {
     res.send('API working')

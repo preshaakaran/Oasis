@@ -2,7 +2,7 @@ import { useUser } from '@clerk/clerk-react'
 import React from 'react'
 import { useReservation } from '../context/ReservationContext';
 import { differenceInDays } from 'date-fns'
-import { el } from 'date-fns/locale';
+import { el, gu } from 'date-fns/locale';
 import axios from 'axios';
 
 
@@ -11,7 +11,7 @@ const Form = ({cabins,id}) => {
     const user = useUser();
     const { range,setRange,resetRange,hasBreakfast,setHasBreakfast} = useReservation();
 
-    const cabin = cabins.find(cabin => cabin.id === id)
+    const cabin = cabins.filter(cabin => cabin.id == id)[0]
     const regularPrice = cabin.price
     const discount = cabin.originalPrice - regularPrice
 
@@ -32,6 +32,7 @@ const Form = ({cabins,id}) => {
         cabinPrice,
         breakFastPrice: hasBreakfast === "true" ? 200 : 0,
         cabinId: id,
+        currentDate: new Date(),
       };
 
       
@@ -50,6 +51,8 @@ const Form = ({cabins,id}) => {
         }else{
             alert("Error placing order")
         }
+
+        
         
       
         
@@ -144,7 +147,7 @@ const Form = ({cabins,id}) => {
               Start by selecting dates
             </p>
           ) : (
-            <button pendingLabel={"Reserving..."} type='submit'>
+            <button type='submit'>
               Reserve now
             </button>
           )}

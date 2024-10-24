@@ -3,33 +3,25 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Booking from './pages/Booking'
+import Home from './pages/Home'
+import Cabin from './pages/Cabin'
+import CabinList from './pages/CabinList'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  const url = 'http://localhost:5000'
 
   return (
     <>
      <BrowserRouter>
           <Routes>
-            <Route
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<Navigate replace to="dashboard" />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="bookings" element={<Bookings />} />
-              <Route path="bookings/:bookingId" element={<Booking />} />
-              <Route path="checkin/:bookingId" element={<CheckinBooking />} />
-              <Route path="cabins" element={<Cabins />} />
-              <Route path="users" element={<Users />} />
-              <Route path="settings" element={<Settings />} />
-              <Route path="account" element={<Account />} />
-            </Route>
-            <Route path="login" element={<Login />} />
-            <Route path="*" element={<PageNotFound />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/booking" element={<Booking url={url}/>} />
+              
+              <Route path="/cabin" element={<Cabin url={url} />} />
+              <Route path="/cabinlist" element={<CabinList url={url} />} />
+              
           </Routes>
         </BrowserRouter>
     </>

@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const cabinSchema = new mongoose.Schema({
+    id: {
+        type: Number,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
@@ -18,6 +22,10 @@ const cabinSchema = new mongoose.Schema({
         required: true,
     },
     image: {
+        type: String,
+        required: true,
+    },
+    description: {
         type: String,
         required: true,
     },

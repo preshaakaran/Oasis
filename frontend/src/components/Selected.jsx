@@ -2,16 +2,18 @@ import React from 'react'
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import TextExpander from './TextExpander';
 
-const Selected = ({cabins,id}) => {
+const Selected = ({cabins,id,url}) => {
 
-    const cabin = cabins.find((cabin) => cabin.id === id)
+    console.log(cabins)
+    const cabin = cabins.filter(cabin => cabin.id == id)[0]
+    console.log(cabin)
     
   return (
     <div className="grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-[3fr_4fr] gap-2 md:gap-20 border border-primary-800 py-3 px-6 md:px-10 mb-12 md:mb-24">
 
       <div className="relative scale-100 md:scale-[1.15] -translate-x-0 md:-translate-x-3 mb-6 md:mb-0">
         <img
-          src={cabin.image}
+          src={`${url}/images/${cabin.image}`}
           alt={`${cabin.name}`}
           fill
           className="object-cover w-full h-full"

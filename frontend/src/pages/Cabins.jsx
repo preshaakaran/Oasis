@@ -9,12 +9,12 @@ import CabinCard from '../components/CabinCard'
 
 
 
-export default function Cabins({cabins}) {
+export default function Cabins({cabins,url}) {
 
 
   
   return (
-    <div className="h-full" style={{backgroundColor: '#141c24'}}>
+    <div className="min-h-screen" style={{backgroundColor: '#141c24'}}>
       <NNavbar />
       
       <div className="max-w-7xl mx-auto mt-10 p-3">
@@ -29,16 +29,8 @@ export default function Cabins({cabins}) {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-        <div className="flex justify-end mb-6 ">
-          <div className='border border-gray-700'>
-          <button className="px-4 py-2 hover:bg-gray-500 text-gray-200">All cabins</button>
-          <button className="px-4 py-2 hover:bg-gray-500 text-gray-200">1–3 guests</button>
-          <button className="px-4 py-2 hover:bg-gray-500 text-gray-200">4–7 guests</button>
-          <button className="px-4 py-2 hover:bg-gray-500 text-gray-200">8–12 guests</button>
-          </div>
-          
-        </div>
-        <CabinCard cabins={cabins}/>
+        
+        <CabinCard cabins={cabins} url={url}/>
         
       </div>
     </div>

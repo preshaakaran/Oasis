@@ -33,6 +33,11 @@ const bookingSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    currentDate:{
+        type: Date,
+        required: true,
+        
+    },
 });
 
 const bookingModel = mongoose.models.booking || mongoose.model("booking", bookingSchema);

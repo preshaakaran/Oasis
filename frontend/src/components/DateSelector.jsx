@@ -13,14 +13,14 @@ import '../components/DateSelector.css'
 
 
 
-const DateSelector = ({cabins, id}) => {
+const DateSelector = ({cabins, id,url}) => {
     const {range,setRange,resetRange,hasBreakfast,setHasBreakfast} = useReservation();
    
 
     const breakfastPrice = hasBreakfast === "true" ? 200 : 0;
     const displayRange = `${range.from} - ${range.to}`
 
-    const cabin = cabins.find((cabin) => cabin.id === id)
+    const cabin = cabins.filter(cabin => cabin.id == id)[0]
     const regularPrice = cabin.price;
     const discount = cabin.originalPrice - regularPrice;
     const numNights = differenceInDays(new Date(range.to), new Date(range.from));
