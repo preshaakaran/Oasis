@@ -83,11 +83,11 @@ const Guest = ({ cabins,url }) => {
                                 <div className='container mx-auto p-4'>
                                     <h1 className="text-3xl font-bold mb-6">Your Reservations</h1>
                                     <div className='h-[60vh] overflow-y-auto scrollbar-hidden'>
-                                        {cabinIds.map((cabinId) => {
-                                            const currentReservation = reservations.find(reservation => reservation.cabinId === cabinId);
-                                            console.log(currentReservation)
+                                        {reservations.map((currentReservation, index) => {
                                             
-                                            const cabin = cabins.find(cabin => cabin.id === Number(cabinId));
+                                            
+                                            
+                                            const cabin = cabins.find(cabin => cabin.id === Number(currentReservation.cabinId));
 
                                             
 
