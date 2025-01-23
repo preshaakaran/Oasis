@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 const Form = ({cabins,id}) => {
-    const url = "https://oasis-nine-gamma.vercel.app/";
+    const url = "https://oasis-nine-gamma.vercel.app";
     const user = useUser();
     const { range,setRange,resetRange,hasBreakfast,setHasBreakfast} = useReservation();
 
