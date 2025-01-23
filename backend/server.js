@@ -30,7 +30,7 @@ connectDB();
 
 app.use('/api/booking', bookingRouter)
 app.use('/api/cabins', cabinRouter)
-app.use("/images",express.static('uploads'));
+app.use("/images",express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('API working')
