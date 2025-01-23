@@ -13,7 +13,7 @@
     ],
     "headers": [
     {
-      "source": "/public/*", 
+      "source": "/public/(.*)", 
       "headers": [
         {
           "key": "Cache-Control",
