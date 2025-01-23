@@ -20,7 +20,7 @@ const deleteCabin = async (req, res) => {
     try{
         const { id } = req.params;
         const cabin = await cabinModel.findById(id);
-        fs.unlink(`public/${cabin.image}`,()=>{})
+        fs.unlink(`images/${cabin.image}`,()=>{})
         await cabinModel.findByIdAndDelete(id);
         res.send('Cabin deleted successfully');
     }catch(error){
