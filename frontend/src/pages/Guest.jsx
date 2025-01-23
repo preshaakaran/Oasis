@@ -21,7 +21,7 @@ const Guest = ({ cabins,url }) => {
 
     const fetchReservations = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/booking/list/${user.user.id}`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/list/${user.user.id}`);
             setReservations(response.data);
             setCabinIds(response.data.map(reservation => reservation.cabinId));
         } catch (error) {
@@ -31,7 +31,7 @@ const Guest = ({ cabins,url }) => {
 
     const handleDelete = async (reservationId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/booking/delete/${reservationId}`);
+            await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/delete/${reservationId}`);
             fetchReservations();
         } catch (error) {
             console.error("Error deleting reservation:", error);

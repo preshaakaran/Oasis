@@ -29,7 +29,7 @@ import { toast } from 'react-toastify'
 
 
 function App() {
-  const url='http://localhost:5000'
+  const url=`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}`
 
   const [cabins, setCabins] = useState([]);
 

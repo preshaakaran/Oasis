@@ -23,7 +23,7 @@ const Booking = ({ url }) => {
     const fetchReservations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/api/booking/list`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/list`);
             setReservations(response.data);
         } catch (error) {
             console.error("Error fetching reservations:", error);
@@ -35,7 +35,7 @@ const Booking = ({ url }) => {
 
     const handleDelete = async (reservationId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/booking/delete/${reservationId}`);
+            await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/delete/${reservationId}`);
             fetchReservations();
             toast.success("Reservation deleted successfully.");
         } catch (error) {

@@ -25,7 +25,7 @@ const Home = () => {
 
     const fetchReservations = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/booking/list`);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/list`);
             setALLReservations(response.data);
         } catch (error) {
             console.error("Error fetching reservations:", error);

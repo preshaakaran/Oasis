@@ -14,7 +14,7 @@ const Confirmation = () => {
   useEffect(() => {
     const fetchSessionDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/booking/session/${sessionId}`);
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/booking/session/${sessionId}`);
         console.log(response.data);
         setSessionDetails(response.data);
       } catch (error) {
@@ -38,7 +38,7 @@ const Confirmation = () => {
 
   setTimeout(()=>
   {
-    window.location.replace("http://localhost:5173/");
+    window.location.replace(`${window.location.origin}/`);
   },6000);
 
 
