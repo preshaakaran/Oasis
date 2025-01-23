@@ -2,7 +2,7 @@ import express from "express";
 import Stripe from "stripe";
 import bookingModel from "../models/bookingModel.js";
 
-const stripe = new Stripe("your_stripe_key");
+const stripe = new Stripe("sk_test_51PxpjvBSrFPQjhNsp7hKXb3uWmnPN5KgHQ4vxN8SuZZ3mLSGTNz92rYN1KTibtgW4bNlf0SbrdSCSsMjaVIqbC1300sJyjNcJm");
 
 const placeOrder = async (req, res) => {
     const frontend_url=process.env.FRONTEND_URL;
