@@ -11,5 +11,16 @@
         "dest": "/server.js"
       }
     ]
+    "headers": [
+    {
+      "source": "/public/*", 
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
+  ]
   }
   
